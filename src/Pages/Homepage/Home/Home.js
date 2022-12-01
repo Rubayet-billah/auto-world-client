@@ -39,7 +39,7 @@ const Home = () => {
                                 </div>
                                 <div className='w-fit'>
                                     <div className="form-control">
-                                        <label className="label cursor-pointer w-full bg-gray-100 rounded  my-2 px-3 justify-start">
+                                        <label className="label cursor-pointer w-full bg-gray-100 rounded  mb-2 mt-4 px-3 justify-start">
                                             <input type="checkbox" className="checkbox" />
                                             <span className="label-text ml-2">Possible Bargenning</span>
                                         </label>

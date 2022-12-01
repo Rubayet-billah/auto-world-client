@@ -41,13 +41,6 @@ const AddCar = () => {
             })
     }
 
-    // . Car name
-    // 2. Mileage 
-    // 3. Location
-    // 4. Engine
-    // 5. Transmission
-    // 6. Price
-
     return (
         <div>
             <h2 className='text-3xl text-center my-5'>Add Car Here</h2>
