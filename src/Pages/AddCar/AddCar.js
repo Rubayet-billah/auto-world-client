@@ -1,9 +1,13 @@
+import { format } from 'date-fns';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const AddCar = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const imgHostKey = process.env.REACT_APP_imgbb_apikey;
+    const navigate = useNavigate();
     const handleAddCar = (data) => {
         const { name, mileage, location, engine, transmission, price } = data;
         const image = data.image[0];
@@ -17,9 +21,23 @@ const AddCar = () => {
             .then(data => {
                 console.log(data)
                 const carObj = {
+                    date: format(new Date(), 'PP'),
                     name, image: data.data.url, mileage, location, engine, transmission, price
                 }
-                console.log(carObj)
+                fetch('http://localhost:5000/cars', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(carObj)
+                }).then(res => res.json())
+                    .then(result => {
+                        if (result.acknowledged) {
+                            toast.success('Product added successfully')
+                            navigate('/')
+                        }
+                    })
+
             })
     }
 
@@ -32,8 +50,8 @@ const AddCar = () => {
 
     return (
         <div>
-            <h2 className='text-3xl text-center'>Add Car Here</h2>
-            <form onSubmit={handleSubmit(handleAddCar)} className='max-w-lg mx-auto'>
+            <h2 className='text-3xl text-center my-5'>Add Car Here</h2>
+            <form onSubmit={handleSubmit(handleAddCar)} className='max-w-lg mx-auto bg-gray-50 md:p-12 rounded-lg'>
                 <input className='input input-sm input-bordered w-full my-2' {...register("name", { required: true })} placeholder='Car Name' />
                 {errors.name && <p className='text-red-500'>This field is required</p>}
                 <input className='file-input file-input-sm file-input-bordered w-full my-2' {...register("image", { required: true })} placeholder='Image' type='file' />

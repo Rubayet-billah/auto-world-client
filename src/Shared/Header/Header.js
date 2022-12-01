@@ -6,9 +6,10 @@ const Header = () => {
     const menuItems = <React.Fragment>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/addcar">Add Car</Link></li>
+        <li><input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" /></li>
     </React.Fragment>
     return (
-        <div className="navbar bg-base-100 flex justify-between">
+        <div className="navbar bg-base-100 flex justify-around">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -18,15 +19,16 @@ const Header = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost normal-case text-xl"></Link>
+                <Link to="/" className="btn btn-ghost normal-case text-xl">Auto World</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
+
                     {menuItems}
                 </ul>
             </div>
-            <label htmlFor="dashboard-drawer" tabIndex={0} className="btn btn-ghost lg:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+            <label htmlFor="car-drawer" tabIndex={0} className="btn btn-ghost lg:hidden">
+                Filters
             </label>
         </div>
     );
