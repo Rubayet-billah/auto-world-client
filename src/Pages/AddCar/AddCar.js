@@ -24,7 +24,7 @@ const AddCar = () => {
                     date: format(new Date(), 'PP'),
                     name, image: data.data.url, mileage, location, engine, transmission, price
                 }
-                fetch('http://localhost:5000/cars', {
+                fetch('https://auto-world-server.vercel.app/cars', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
