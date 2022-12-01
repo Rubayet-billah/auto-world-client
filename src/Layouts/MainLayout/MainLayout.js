@@ -5,7 +5,7 @@ import Header from '../../Shared/Header/Header';
 
 const MainLayout = () => {
     return (
-        <div className='container mx-auto min-h-screen'>
+        <div className='container mx-auto min-h-screen mb-5'>
             <Header></Header>
             <Outlet></Outlet>
             <Toaster
