@@ -20,7 +20,7 @@ const Home = () => {
                     {/* <label htmlFor="car-drawer" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
 
                 </div>
-                <div className="drawer-side">
+                <div className="drawer-side font-semibold">
                     <label htmlFor="car-drawer" className="drawer-overlay"></label>
                     <ul className="menu w-80 bg-base-100 text-base-content">
 
